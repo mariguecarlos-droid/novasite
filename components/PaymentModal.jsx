@@ -38,7 +38,7 @@ export function PaymentModal({ isOpen, onClose, plan }) {
     if (step === 2 && transactionId) {
       interval = setInterval(async () => {
         try {
-          const res = await fetch(`/api/check-payment?id=${transactionId}`);
+          const res = await fetch(`/api/check-payment.php?id=${transactionId}`);
           if (res.ok) {
             const data = await res.json();
             // Adapte 'PAID' para o status real que a API retorna (ex: 'paid', 'confirmed', 'succeeded')
@@ -59,7 +59,7 @@ export function PaymentModal({ isOpen, onClose, plan }) {
   const checkPaymentManual = async () => {
       setLoading(true);
       try {
-          const res = await fetch(`/api/check-payment?id=${transactionId}`);
+          const res = await fetch(`/api/check-payment.php?id=${transactionId}`);
           const data = await res.json();
           if (res.ok && (data.status === 'paid' || data.status === 'approved' || data.status === 'confirmed')) {
              setStep(3);
@@ -116,7 +116,7 @@ export function PaymentModal({ isOpen, onClose, plan }) {
         payer: cleanData,
       };
 
-      const response = await fetch('/api/create-payment', {
+      const response = await fetch('/api/create-payment.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(paymentData),
