@@ -103,7 +103,12 @@ export default function Home() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"></span>
             </a>
             <Button 
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                const precosSection = document.getElementById('precos');
+                if (precosSection) {
+                  precosSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 rounded-full px-6"
             >
               Começar Agora
@@ -133,7 +138,12 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up" style={{ animationDelay: '400ms' }}>
               <Button 
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => {
+                  const precosSection = document.getElementById('precos');
+                  if (precosSection) {
+                    precosSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 size="lg" 
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg px-8 py-6 shadow-xl shadow-blue-600/20 hover:shadow-blue-600/40 hover:-translate-y-1 transition-all duration-300 rounded-full"
               >
